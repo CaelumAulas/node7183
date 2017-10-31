@@ -1,0 +1,28 @@
+{
+  "name": "casadocodigo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CaelumAulas/node7183.git"
+  },
+  "keywords": [
+    "livro"
+  ],
+  "author": "Marco Bruno",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/CaelumAulas/node7183/issues"
+  },
+  "homepage": "https://github.com/CaelumAulas/node7183#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
