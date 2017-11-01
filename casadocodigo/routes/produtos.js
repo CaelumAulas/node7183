@@ -6,14 +6,14 @@ module.exports = (app) => {
       user: 'root',
       password: '',
       host: 'localhost',
-      database: 'casadocodigo2'
+      database: 'casadocodigo1'
     })
 
     connection.query('SELECT * FROM livros', (error, result) => {
       const livros = result
       res.render('produtos/lista', {livros})
     })
-    
+
     connection.end()
 
     console.log('URL:', req.url)
