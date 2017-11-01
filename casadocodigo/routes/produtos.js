@@ -1,23 +1,17 @@
-const mysql = require('mysql')
+const connectionFactory = require('../infra/connectionFactory')
+const LivroDao = require('../dao/LivroDao')
 
 module.exports = (app) => {
   app.get('/produtos', (req, res) => {
-    const connection = mysql.createConnection({
-      user: 'root',
-      password: '',
-      host: 'localhost',
-      database: 'casadocodigo1'
-    })
+    const connection = new connectionFactory()
+    const livroDao = new LivroDao(connection)
 
-    connection.query('SELECT * FROM livros', (error, result) => {
+    livroDao.getAll((error, result) => {
       const livros = result
+
       res.render('produtos/lista', {livros})
     })
 
-    connection.end()
-
-    console.log('URL:', req.url)
-    const titulo = 'Listamge de produtos'
 
   })
 }
