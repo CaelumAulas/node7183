@@ -3,7 +3,7 @@ const LivroDao = require('../dao/LivroDao')
 
 module.exports = (app) => {
   app.get('/produtos', (req, res) => {
-    const connection = new connectionFactory()
+    const connection = connectionFactory()
     const livroDao = new LivroDao(connection)
 
     livroDao.getAll((error, result) => {
@@ -11,7 +11,5 @@ module.exports = (app) => {
 
       res.render('produtos/lista', {livros})
     })
-
-
   })
 }
