@@ -5,7 +5,7 @@ function connectionFactory() {
     user: 'root',
     password: '',
     host: 'localhost',
-    database: 'casadocodigo1'
+    database: 'casadocodigo2'
   })
 
   return connection

@@ -6,7 +6,14 @@ module.exports = (app) => {
     livroDao.getAll((error, result) => {
       const livros = result
 
-      res.render('produtos/lista', {livros})
+      res.format({
+        html: () => {
+          res.render('produtos/lista', {livros})
+        },
+        json: () => {
+          res.json(livros)
+        }
+      })
     })
   })
 
