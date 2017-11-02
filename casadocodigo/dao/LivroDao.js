@@ -12,6 +12,12 @@ class LivroDao {
 
     this.connection.end()
   }
+
+  save(livro, callback) {
+    this.connection.query(`INSERT INTO livros SET ?`, livro, callback)
+
+    this.connection.end()
+  }
 }
 
-module.exports = LivroDao
+module.exports = () => LivroDao

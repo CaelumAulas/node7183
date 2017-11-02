@@ -1,11 +1,19 @@
 module.exports = function() {
   const express = require('express')
+  const bodyParser = require('body-parser')
+  const load = require('express-load')
   const app = express()
 
   app.set('view engine', 'ejs')
 
+  app.use(bodyParser.urlencoded({extended: true}))
   app.use(express.static('./public'))
-  require('./routes/produtos')(app)
+
+  load('infra')
+      .then('dao')
+      .then('routes')
+      .then('errorStatusHttp')
+      .into(app)
 
   return app
 }
