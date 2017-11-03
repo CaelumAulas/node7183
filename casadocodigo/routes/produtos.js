@@ -18,7 +18,7 @@ module.exports = (app) => {
   })
 
   app.get('/produtos/form', (req, res) => {
-    res.render('produtos/form')
+    res.render('produtos/form', {livro: ''})
   })
 
   app.post('/produtos', (req, res) => {
@@ -26,8 +26,18 @@ module.exports = (app) => {
     const connection = app.infra.connectionFactory()
     const livroDao = new app.dao.LivroDao(connection)
 
-    livroDao.save(livro, (error, result) => {
-      res.redirect('/produtos')
-    })
+    req.assert('titulo', 'Título deve ser preenchido').notEmpty()
+    req.assert('preco', 'Preço deve ser um número').isFloat()
+    const errors = req.validationErrors()
+
+    if(errors) {
+      res.status(400).render('produtos/form', {errors, livro})
+    } else {
+      livroDao.save(livro, (error, result) => {
+        res.redirect('/produtos')
+      })
+    }
+
+
   })
 }

@@ -1,11 +1,12 @@
 const mysql = require('mysql')
 
+
 function connectionFactory() {
   const connection = mysql.createConnection({
-    user: 'root',
-    password: '',
-    host: 'localhost',
-    database: 'casadocodigo2'
+    user: process.env.USER_DB,
+    password: process.env.PASS_DB,
+    host: process.env.HOST_DB,
+    database: process.env.DATABASE
   })
 
   return connection
