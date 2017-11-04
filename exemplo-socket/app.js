@@ -14,15 +14,8 @@ app.get('/', (req, res) => {
 })
 
 app.get('/vai', (req, res) => {
-  app.get('io').emit('vai', req.url)
+  io.emit('vai', req.url)
   res.send('vai')
-})
-
-io.on('connection', (socket) => {
-  socket.emit('news', { hello: 'world' })
-  socket.on('my other event', function (data) {
-    console.log(data)
-  })
 })
 
 server.listen(port, () => {
