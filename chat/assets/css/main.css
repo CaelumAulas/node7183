@@ -1,13 +1,17 @@
 .msg {
   background-color: var(--fundo);
   height: 90vh;
+  padding-left: 3%;
+  padding-right: 3%;
+  color: var(--letra);
+  font-size: 25px;
 }
 
 .msg__title {
   color: var(--letra);
   text-align: center;
   text-transform: uppercase;
-  font-size: 2.5em
+  font-size: 30px;
 }
 
 .send-msg__content {

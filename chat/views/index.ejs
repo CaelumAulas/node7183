@@ -14,11 +14,12 @@
     <h1 class="msg__title">Mensagens</h1>
   </article>
 
-  <form class="send-msg">
-    <input type="text" class="send-msg__content">
-    <input type="button" value="Enviar" class="send-msg__action">
+  <form action="/msg" method="POST" class="send-msg">
+    <input type="text" name="msg" class="send-msg__content">
+    <input type="submit" value="Enviar" class="send-msg__action">
   </form>
 
-
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 </html>
